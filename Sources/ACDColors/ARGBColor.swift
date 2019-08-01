@@ -10,7 +10,7 @@ import Foundation
 import CoreGraphics
 import UIKit.UIColor
 
-struct ARGBColor {
+public struct ARGBColor {
     let red: CGFloat
     let green: CGFloat
     let blue: CGFloat
@@ -19,32 +19,32 @@ struct ARGBColor {
     static let MIN: CGFloat = 0
     static let MAX: CGFloat = 255
     
-    init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+    public init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
         self.red = red.adjust(range: ARGBColor.MIN...ARGBColor.MAX)
         self.green = green.adjust(range: ARGBColor.MIN...ARGBColor.MAX)
         self.blue = blue.adjust(range: ARGBColor.MIN...ARGBColor.MAX)
         self.alpha = alpha.adjust(range: ARGBColor.MIN...ARGBColor.MAX)
     }
     
-    var color: UIColor {
+    public var color: UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
 
 extension ARGBColor: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         return String(format: "#%02X%02X%02X%02X", UInt8(alpha * 255), UInt8(red * 255), UInt8(green * 255), UInt8(blue * 255))
     }
 }
 
 extension ARGBColor: ExpressibleByStringLiteral {
-    init(stringLiteral value: String) {
+    public init(stringLiteral value: String) {
         self = value.argbColor
     }
 }
 
 extension String {
-    var argbColor: ARGBColor {
+    public var argbColor: ARGBColor {
         let hex = self.uppercased().trimmingCharacters(in: CharacterSet(charactersIn: "0123456789ABCDEF").inverted)
         
         var hexNumber = UInt64()
@@ -80,7 +80,7 @@ extension CGFloat {
 }
 
 extension UIColor {
-    var argbColor: ARGBColor {
+    public var argbColor: ARGBColor {
         var red:   CGFloat = 0
         var green: CGFloat = 0
         var blue:  CGFloat = 0
