@@ -46,13 +46,13 @@ extension ARGBColor: Codable {
 }
 
 extension String {
-    public var argbColor: ARGBColor {
+    public var argb: (a: CGFloat, r: CGFloat, g: CGFloat, b: CGFloat) {
         let hex = self.uppercased().trimmingCharacters(in: CharacterSet(charactersIn: "0123456789ABCDEF").inverted)
         
         var hexNumber = UInt64()
         Scanner(string: hex).scanHexInt64(&hexNumber)
         
-        let r, g, b, a: UInt64
+        let a, r, g, b: UInt64
         switch hex.count {
         case 3:
             (a, r, g, b) = (255, (hexNumber >> 8) * 17, (hexNumber >> 4 & 0xF) * 17, (hexNumber & 0xF) * 17) // RGB
@@ -65,7 +65,13 @@ extension String {
             (a, r, g, b) = (255, 0, 0, 0)
         }
         
-        return ARGBColor(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: CGFloat(a)/255)
+        return (CGFloat(a)/255, CGFloat(r)/255, CGFloat(g)/255, CGFloat(b)/255)
+    }
+    
+    public var argbColor: ARGBColor {
+        let argbValue = self.argb
+        
+        return ARGBColor(red: argbValue.r, green: argbValue.g, blue: argbValue.b, alpha: argbValue.a)
     }
 }
 

@@ -12,7 +12,7 @@ final class ACDColorsTests: XCTestCase {
         
         XCTAssertEqual(argb, argbs)
         
-        XCTAssertEqual(argb.color, UIColor.red)
+        XCTAssertEqual(argb.uiColor, UIColor.red)
     }
     
     

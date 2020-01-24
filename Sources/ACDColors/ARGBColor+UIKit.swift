@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 extension ARGBColor {
-    public var color: UIColor {
+    public var uiColor: UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
