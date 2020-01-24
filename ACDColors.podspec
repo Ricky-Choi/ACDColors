@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "ACDColors"
-  spec.version      = "1.0.2"
+  spec.version      = "1.0.3"
   spec.summary      = "iOS 13 Predefined Color Values"
   spec.description  = <<-DESC
   Support new predefined colors introduced in iOS 13

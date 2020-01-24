@@ -7,7 +7,10 @@
 //
 
 import Foundation
-import UIKit.UIColor
+
+#if canImport(UIKit)
+
+import UIKit
 
 extension UIColor {
     // MARK: Label Colors
@@ -167,3 +170,5 @@ extension UIColor {
     }
     
 }
+
+#endif

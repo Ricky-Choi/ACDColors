@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreGraphics
-import UIKit.UIColor
+
 
 public struct ARGBColor {
     let red: CGFloat
@@ -25,10 +25,6 @@ public struct ARGBColor {
         self.blue = blue.adjust(range: ARGBColor.MIN...ARGBColor.MAX)
         self.alpha = alpha.adjust(range: ARGBColor.MIN...ARGBColor.MAX)
     }
-    
-    public var color: UIColor {
-        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
-    }
 }
 
 extension ARGBColor: CustomStringConvertible {
@@ -41,6 +37,9 @@ extension ARGBColor: ExpressibleByStringLiteral {
     public init(stringLiteral value: String) {
         self = value.argbColor
     }
+}
+
+extension ARGBColor: Codable {
 }
 
 extension String {
@@ -79,18 +78,4 @@ extension CGFloat {
     }
 }
 
-extension UIColor {
-    public var argbColor: ARGBColor {
-        var red:   CGFloat = 0
-        var green: CGFloat = 0
-        var blue:  CGFloat = 0
-        var alpha: CGFloat = 0
-        
-        if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
-            return ARGBColor(red: red, green: green, blue: blue, alpha: alpha)
-        } else {
-            assertionFailure("Invalid Color Space")
-            return ARGBColor(red: ARGBColor.MIN, green: ARGBColor.MIN, blue: ARGBColor.MIN, alpha: ARGBColor.MAX)
-        }
-    }
-}
+
