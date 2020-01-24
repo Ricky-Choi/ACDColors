@@ -2,14 +2,22 @@ import XCTest
 @testable import ACDColors
 
 final class ACDColorsTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(ACDColors().text, "Hello, World!")
+    func testARGBDescription() {
+        
+        let argb = ARGBColor(red: 1, green: 0, blue: 0, alpha: 1)
+        let argbs: ARGBColor = "FF0000"
+        
+        XCTAssertEqual(argb.description, "#FFFF0000")
+        XCTAssertEqual(argbs.description, "#FFFF0000")
+        
+        XCTAssertEqual(argb, argbs)
+        
+        XCTAssertEqual(argb.color, UIColor.red)
     }
+    
+    
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testExample", testARGBDescription),
     ]
 }

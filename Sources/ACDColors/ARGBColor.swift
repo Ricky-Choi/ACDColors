@@ -17,7 +17,7 @@ public struct ARGBColor {
     let alpha: CGFloat
     
     static let MIN: CGFloat = 0
-    static let MAX: CGFloat = 255
+    static let MAX: CGFloat = 1
     
     public init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
         self.red = red.adjust(range: ARGBColor.MIN...ARGBColor.MAX)
@@ -37,6 +37,9 @@ extension ARGBColor: ExpressibleByStringLiteral {
     public init(stringLiteral value: String) {
         self = value.argbColor
     }
+}
+
+extension ARGBColor: Hashable {
 }
 
 extension ARGBColor: Codable {
