@@ -14,6 +14,8 @@ extension ACDColor {
     }
     
     public init(name: String, uiColor: UIColor) {
+        self.name = name
+        
         if #available(iOS 13.0, *) {
             self.color = uiColor.lightColor.argbColor
             self.darkColor = uiColor.darkColor.argbColor
