@@ -7,9 +7,6 @@
 //
 
 import Foundation
-
-#if canImport(UIKit)
-
 import UIKit
 
 extension UIColor {
@@ -30,6 +27,10 @@ extension UIColor {
         } else {
             self.init(cgColor: color.cgColor)
         }
+    }
+    
+    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1){
+        self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
     }
     
     public convenience init(hexString: String) {
@@ -254,8 +255,3 @@ extension UIColor {
         }
     }
 }
-
-#endif
-
-
-

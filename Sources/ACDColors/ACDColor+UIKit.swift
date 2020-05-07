@@ -6,9 +6,6 @@
 //
 
 import Foundation
-
-#if canImport(UIKit)
-
 import UIKit
 
 extension ACDColor {
@@ -31,5 +28,3 @@ extension ACDColor {
         
     }
 }
-
-#endif

@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-#if canImport(UIKit)
 import UIKit
 
 extension ARGBColor {
@@ -31,5 +29,3 @@ extension UIColor {
         }
     }
 }
-
-#endif

@@ -6,9 +6,6 @@
 //
 
 import Foundation
-
-#if canImport(UIKit)
-
 import UIKit
 
 extension ACDColor {
@@ -91,5 +88,3 @@ extension ACDColor {
     public static let transparentColor: [ACDColor] = [.clear]
     public static let fixedColors: [ACDColor] = [.black, .blue, .brown, .cyan, .darkGray, .gray, .green, .lightGray, .magenta, .orange, .purple, .red, .white, .yellow]
 }
-
-#endif
