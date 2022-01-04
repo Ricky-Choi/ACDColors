@@ -15,7 +15,12 @@ final class ACDColorsTests: XCTestCase {
         XCTAssertEqual(argb.uiColor, UIColor.red)
     }
     
-    
+    func testNamedColor() {
+        let namedColorByString: ACDColor = "iOS.System Red"
+        let namedColor: ACDColor = ACDColor.Named.systemRed.color
+        
+        XCTAssertEqual(namedColorByString, namedColor)
+    }
 
     static var allTests = [
         ("testExample", testARGBDescription),

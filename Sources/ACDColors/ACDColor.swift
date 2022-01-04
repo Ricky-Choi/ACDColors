@@ -15,14 +15,13 @@ public struct ACDColor {
         self.colorContrast = colorContrast
         self.darkColorContrast = darkColorContrast
     }
-}
-
-extension ACDColor: ExpressibleByStringLiteral {
-    public init(stringLiteral value: String) {
-        color = value.argbColor
-        darkColor = nil
-        colorContrast = nil
-        darkColorContrast = nil
+    
+    public init(hexString: String, name: String?) {
+        self.init(name: name,
+                  color: hexString.argbColor,
+                  darkColor: nil,
+                  colorContrast: nil,
+                  darkColorContrast: nil)
     }
 }
 
@@ -32,4 +31,14 @@ extension ACDColor: Hashable {
 
 extension ACDColor: Codable {
     
+}
+
+extension ACDColor: ExpressibleByStringLiteral {
+    public init(stringLiteral value: String) {
+        if let named = Named(rawValue: value) {
+            self = named.color
+        } else {
+            self = Named.black.color
+        }
+    }
 }

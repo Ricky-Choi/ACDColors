@@ -5,7 +5,6 @@
 //  Created by Jaeyoung Choi on 2020/01/24.
 //
 
-import Foundation
 import UIKit
 
 extension ACDColor {
@@ -27,6 +26,6 @@ extension ACDColor {
             self.colorContrast = nil
             self.darkColorContrast = nil
         }
-        
     }
 }
+
