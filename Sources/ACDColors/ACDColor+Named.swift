@@ -83,7 +83,7 @@ extension ACDColor {
         case watchGray = "watchOS.Gray"
         case watchTextGray = "watchOS.TextGray"
         
-        var color: ACDColor {
+        public var color: ACDColor {
             let uiColor: UIColor
             switch self {
             case .label: uiColor = .label_
