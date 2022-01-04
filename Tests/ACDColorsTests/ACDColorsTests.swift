@@ -16,6 +16,12 @@ final class ACDColorsTests: XCTestCase {
     }
     
     func testNamedColor() {
+        let wrongNamedColor = ACDColor(named: "MyFavorite")
+        
+        XCTAssertNil(wrongNamedColor)
+    }
+    
+    func testNamedColorByStringLiteral() {
         let namedColorByString: ACDColor = "iOS.System Red"
         let namedColor: ACDColor = ACDColor.Named.systemRed.color
         

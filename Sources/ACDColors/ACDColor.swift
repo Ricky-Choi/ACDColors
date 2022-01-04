@@ -23,6 +23,14 @@ public struct ACDColor {
                   colorContrast: nil,
                   darkColorContrast: nil)
     }
+    
+    public init?(named: String) {
+        if let predefinedName = Named(rawValue: named) {
+            self = predefinedName.color
+        } else {
+            return nil
+        }
+    }
 }
 
 extension ACDColor: Hashable {
